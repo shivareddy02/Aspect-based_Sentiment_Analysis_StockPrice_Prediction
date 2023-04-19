@@ -26,20 +26,20 @@ def add_bg_from_local(image_file):
     unsafe_allow_html=True
     )
 
-add_bg_from_local('C:/Users/shiva/Desktop/TSA_Final_Project/stock_price1.jpg')    
+add_bg_from_local('stock_price1.jpg')    
 
 st.header("Netflix Stock Price Prediction App")
 input_days = st.slider('Days', 0, 60)
 
 # Load the data
-df = pd.read_csv('C:/Users/shiva/Desktop/TSA_Final_Project/NFLX.csv', index_col='Date', parse_dates=True)
+df = pd.read_csv('NFLX.csv', index_col='Date', parse_dates=True)
 
 
 
 def predict_stocks(number):
-    df = pd.read_csv('C:/Users/shiva/Desktop/TSA_Final_Project/NFLX.csv', index_col='Date', parse_dates=True)
+    df = pd.read_csv('NFLX.csv', index_col='Date', parse_dates=True)
 
-    model = tf.keras.models.load_model('C:/Users/shiva/Desktop/TSA_Final_Project/best_lstm_model.h5', compile = False)
+    model = tf.keras.models.load_model('best_lstm_model.h5', compile = False)
     model.compile(optimizer='adam', loss='mse')
     # Sort the data by date
     df = df.sort_values('Date')
