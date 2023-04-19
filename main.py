@@ -62,7 +62,7 @@ def predict_stocks(number):
     dates = pd.date_range(last_date, periods=prediction_days+1, freq='B')[1:]
 
     # Predict the future prices
-    last_60_days = scaled_data[-30:]
+    last_60_days = scaled_data[-60:]
     X_predict = []
     X_predict.append(last_60_days)
     X_predict = np.array(X_predict)
